@@ -27,6 +27,8 @@ public class HealthContainer : MonoBehaviour
     [SerializeField]
     private GameObject pickupPrefab;
 
+    [SerializeField] private Collider2D col;
+
     private List<ImmunitySource> currentImmunities;
     
     public float currentHP;
@@ -50,6 +52,7 @@ public class HealthContainer : MonoBehaviour
 
     public void Start()
     {
+        col = GetComponent<Collider2D>();
         currentHP = maxHP;
         currentImmunities = new List<ImmunitySource>();
     }
@@ -112,6 +115,8 @@ public class HealthContainer : MonoBehaviour
                     GameObject dropPickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
                     WeaponPickup newPickup = dropPickup.GetComponent<WeaponPickup>();
                     newPickup.Initialize(definition);
+
+                    col.enabled = false;
                 }
             }
 
