@@ -1,5 +1,7 @@
 # Roll or Die
 
+![alt text](https://img.itch.zone/aW1nLzk1NTU4NTAuZ2lm/original/z7Ykye.gif)
+
 (Development period: less than 48hs - July 2022)
 
 In Roll Or Die you play as Rollando, the six-sided die. Survive hordes of Savage D20s and Evil D8s, rolling both out of harm's way AND over powerful arcane weapons.
