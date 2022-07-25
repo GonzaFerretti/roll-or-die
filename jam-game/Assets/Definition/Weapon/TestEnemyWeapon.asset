@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3fb679a914c454a904cf4c4fd6ba4e5, type: 3}
+  m_Name: TestEnemyWeapon
+  m_EditorClassIdentifier: 
+  displayName: enemyWeapon
+  pickupIcon: {fileID: 21300000, guid: 1b7620327042fd74f8e8403f4c55503d, type: 3}
+  bullet: {fileID: 2499631925527292768, guid: e5ed1e90ac2b46f46aab187b3eef8c06, type: 3}
+  range: -1
+  spread: 0
+  fireForce: 15
+  damage: 2
+  fireInterval: 1
+  ammo: -1
+  weaponPrefab: {fileID: 8499537965434442556, guid: 27bcf2aeed0dcc14abac8fab9e526837, type: 3}
