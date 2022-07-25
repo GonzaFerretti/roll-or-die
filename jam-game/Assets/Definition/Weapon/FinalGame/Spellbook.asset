@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: Yahtzee rulebook
   pickupIcon: {fileID: 21300000, guid: 19fb7c0c3e1a8b44fa71a303235deba1, type: 3}
   bullet: {fileID: 2499631925527292768, guid: f09c88e32a472194b8826758944c293a, type: 3}
-  range: 10
+  range: 8.7
   spread: 2.5
   burstRate: 0
   burstAmount: -1
@@ -23,5 +23,5 @@ MonoBehaviour:
   fireForce: 20
   damage: 100
   fireInterval: 0.5
-  ammo: 20
+  ammo: 15
   weaponPrefab: {fileID: 8499537965434442556, guid: bead7975d9b7c7745b83ae54bf67c7c5, type: 3}
