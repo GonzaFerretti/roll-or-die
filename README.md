@@ -1,5 +1,3 @@
-# Roll or Die
-
 ![alt text](https://img.itch.zone/aW1nLzk1NTU4NTAuZ2lm/original/z7Ykye.gif)
 
 (Development period: less than 48hs - July 2022)
