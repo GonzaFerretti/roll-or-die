@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5239114769487370889}
   - component: {fileID: 5239114769487370890}
   - component: {fileID: 186190147670312031}
+  - component: {fileID: 527967755123281679}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: -17811019
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: b5919442e52b378448f5c027df6a771d, type: 3}
+  m_Sprite: {fileID: 583199106, guid: 415408740150b2c49ad706d9f880c3be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -228,6 +229,7 @@ MonoBehaviour:
   arma3: {fileID: 0}
   arma4: {fileID: 0}
   pickupPrefab: {fileID: 0}
+  col: {fileID: 0}
   currentHP: 0
 --- !u!114 &5239114769487370890
 MonoBehaviour:
@@ -265,3 +267,105 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &527967755123281679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239114769487370911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3df9b8fac9a2c74ebe0b392a445b1da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whiteMaterial: {fileID: 2100000, guid: 4af8effcd097efd41a218a3a741b270c, type: 2}
+  duration: 0.1
+  hitAnimation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0041160583
+      value: -0.004333496
+      inSlope: 5.46542
+      outSlope: 504.87177
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.006102711
+      value: 0.99867123
+      inSlope: 504.87177
+      outSlope: -0.036173053
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.13045779
+      value: 0.99417293
+      inSlope: -0.036173053
+      outSlope: -24.067642
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.17034125
+      value: 0.034271955
+      inSlope: -24.067642
+      outSlope: -0.03339156
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3057803
+      value: 0.029749434
+      inSlope: -0.03339156
+      outSlope: 7108.244
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.30591488
+      value: 0.98642874
+      inSlope: 7108.244
+      outSlope: 0.19041947
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.44622564
+      value: 1.0131466
+      inSlope: 0.19041947
+      outSlope: -12.551988
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5248987
+      value: 0.02564329
+      inSlope: -12.551988
+      outSlope: -0.05519039
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.99658203
+      value: -0.00038909912
+      inSlope: -0.05519039
+      outSlope: 0.047660995
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  playEditor: 0

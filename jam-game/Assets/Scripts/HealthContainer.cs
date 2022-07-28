@@ -20,6 +20,8 @@ public class HealthContainer : MonoBehaviour
     public float maxHP = 10;
     [SerializeField]
     private List<DamageSource> acceptedDamageSources;
+    
+    private HitAnimation hitAnim;
 
     [SerializeField]
     private WeaponDefinition arma1, arma2, arma3, arma4;
@@ -54,6 +56,7 @@ public class HealthContainer : MonoBehaviour
     public void Start()
     {
         col = GetComponent<Collider2D>();
+        hitAnim = GetComponent<HitAnimation>();
         currentHP = maxHP;
         currentImmunities = new List<ImmunitySource>();
     }
@@ -91,6 +94,8 @@ public class HealthContainer : MonoBehaviour
                     AudioManager.instance.Play("enemyHit");
                 }
             }
+            
+            hitAnim.Play();
 
             if (OnDamaged != null)
             {

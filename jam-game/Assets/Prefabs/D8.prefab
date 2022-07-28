@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1856444116185406437}
   - component: {fileID: 3009074312120132332}
   - component: {fileID: 2088501079}
+  - component: {fileID: 6541594572951423012}
   m_Layer: 3
   m_Name: D8
   m_TagString: Enemy
@@ -177,6 +178,7 @@ MonoBehaviour:
   arma3: {fileID: 11400000, guid: d24533192a1ff0c438f330dc69e1e738, type: 2}
   arma4: {fileID: 11400000, guid: 3b149b486871564448fbe944b0e11049, type: 2}
   pickupPrefab: {fileID: 8155503838990996006, guid: 8dc15b47e8f656d418a7ecefbf221e09, type: 3}
+  col: {fileID: 0}
   currentHP: 0
 --- !u!114 &3009074312120132332
 MonoBehaviour:
@@ -216,3 +218,69 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6541594572951423012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856444116185406432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3df9b8fac9a2c74ebe0b392a445b1da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whiteMaterial: {fileID: 2100000, guid: 4af8effcd097efd41a218a3a741b270c, type: 2}
+  duration: 0.1
+  hitAnimation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0041160583
+      value: -0.004333496
+      inSlope: 5.46542
+      outSlope: 504.87177
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.006102711
+      value: 0.99867123
+      inSlope: 504.87177
+      outSlope: -0.027202765
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.2406385
+      value: 0.9922912
+      inSlope: -0.027202765
+      outSlope: -12.875573
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3165593
+      value: 0.01476711
+      inSlope: -12.875573
+      outSlope: -0.022287799
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.99658203
+      value: -0.00038909912
+      inSlope: -0.022287799
+      outSlope: 0.047660995
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  playEditor: 0
