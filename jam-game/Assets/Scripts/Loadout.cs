@@ -21,6 +21,8 @@ public class Loadout : MonoBehaviour
     public OnWeaponsUpdate OnWeaponsUpdated;
     public OnWeaponPickedEvent OnWeaponPicked;
     public OnCurrentWeaponChangeEvent OnCurrentWeaponChanged;
+
+    private HealthContainer healthContainer;
     
     [SerializeField] 
     private LoadoutFullResponse loadoutFullResponse;
@@ -35,6 +37,11 @@ public class Loadout : MonoBehaviour
     public bool canPickup = false;
 
     public bool justPickedUp = false;
+
+    public void Start()
+    {
+        healthContainer = GetComponent<HealthContainer>();
+    }
 
     public void SetSpawnParent(GameObject inSpawnParent)
     {
@@ -123,6 +130,7 @@ public class Loadout : MonoBehaviour
         }
         
         weapon.OnAmmoDepleted += OnWeaponAmmoDepleted;
+        weapon.OnBulletHit += OnBulletHit;
         justPickedUp = true;
 
         return weapon;
@@ -131,6 +139,7 @@ public class Loadout : MonoBehaviour
     public void DropWeapon(int index)
     {
         Weapon weapon = Weapons[index];
+        weapon.OnBulletHit -= OnBulletHit;
         WeaponDefinition weaponDef = Instantiate(weapon.def);
         weaponDef.ammo = weapon.currentAmmo;
 
@@ -139,6 +148,14 @@ public class Loadout : MonoBehaviour
         newPickup.Initialize(weaponDef);
 
         Destroy(weapon.gameObject);
+    }
+
+    private void OnBulletHit(BulletParams bulletParams, GameObject hitObject)
+    {
+        if (healthContainer && bulletParams.healthOnHit > 0)
+        {
+            healthContainer.Heal(bulletParams.healthOnHit);
+        }
     }
 
     private void OnWeaponAmmoDepleted(Weapon weapon)

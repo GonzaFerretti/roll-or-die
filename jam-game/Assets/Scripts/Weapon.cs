@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
 
     public OnAmmoDepletion OnAmmoDepleted;
     public OnAmmoChangedEvent OnAmmoChanged;
+    public BulletHitEvent OnBulletHit;
 
     [SerializeField]
     private Transform firePoint;
@@ -35,6 +36,11 @@ public class Weapon : MonoBehaviour
         def = weaponDef;
         currentAmmo = weaponDef.ammo;
         damageSource = inDamageSource;
+    }
+
+    public void SingleFire()
+    {
+        TryFire();
     }
 
     public void SetIsTriggered(bool newState)
@@ -70,9 +76,12 @@ public class Weapon : MonoBehaviour
             Fire(currentTime);
         }
 
-        float normalizedAngle = rotationPivot.eulerAngles.z;
-        normalizedAngle = (normalizedAngle < 0) ? normalizedAngle + 360 : normalizedAngle;
-        spriteRenderer.flipY = normalizedAngle > 0 && normalizedAngle <= 180;
+        if (spriteRenderer)
+        {
+            float normalizedAngle = rotationPivot.eulerAngles.z;
+            normalizedAngle = (normalizedAngle < 0) ? normalizedAngle + 360 : normalizedAngle;
+            spriteRenderer.flipY = normalizedAngle > 0 && normalizedAngle <= 180;
+        }
     }
 
     public void SetWeaponRotation(float angle)
@@ -83,7 +92,7 @@ public class Weapon : MonoBehaviour
     private void TryFire()
     {
         float currentTime = Time.time;
-        if (currentTime >= lastShotTimestamp + def.fireInterval)
+        if (def.fireInterval == -1.0f || currentTime >= lastShotTimestamp + def.fireInterval)
         {
             if (damageSource == DamageSource.player)
             {
@@ -121,9 +130,9 @@ public class Weapon : MonoBehaviour
             projectile.GetComponent<Rigidbody2D>().AddForce((localRotation * Vector3.up) * def.fireForce, ForceMode2D.Impulse);
             Bullet createdBullet = projectile.GetComponent<Bullet>();
             createdBullet.source = damageSource;
-            createdBullet.damage = def.damage;
+            createdBullet.bulletParams = new BulletParams(def);
             createdBullet.origin = firePoint.position;
-            createdBullet.rangeSqr = (def.range != -1) ? def.range * def.range : def.range;
+            createdBullet.OnHit += NotifyBulletHit;
         }
         
         if (def.ammo != -1)
@@ -141,6 +150,14 @@ public class Weapon : MonoBehaviour
                     OnAmmoDepleted(this);
                 }
             }
+        }
+    }
+
+    private void NotifyBulletHit(BulletParams bulletParams, GameObject hitobject)
+    {
+        if (OnBulletHit != null)
+        {
+            OnBulletHit(bulletParams, hitobject);
         }
     }
 }

@@ -17,6 +17,7 @@ MonoBehaviour:
   bullet: {fileID: 2499631925527292768, guid: 0a7d72616a1d2f54f81b1ac745ae6d02, type: 3}
   range: 3
   spread: 146.2
+  lifeSteal: 0.1
   burstRate: 0.25
   burstAmount: 2
   amountPerShot: 15

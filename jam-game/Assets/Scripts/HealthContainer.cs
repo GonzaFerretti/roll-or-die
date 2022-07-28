@@ -33,9 +33,10 @@ public class HealthContainer : MonoBehaviour
     
     public float currentHP;
 
-    public delegate void DamageEvent(float newHP, float oldHP);
+    public delegate void HealthChangeEvent(float newHP, float oldHP);
     
-    public DamageEvent OnDamaged;
+    public HealthChangeEvent OnDamaged;
+    public HealthChangeEvent OnHealed;
 
     public void AddImmunity(ImmunitySource source)
     {
@@ -55,6 +56,17 @@ public class HealthContainer : MonoBehaviour
         col = GetComponent<Collider2D>();
         currentHP = maxHP;
         currentImmunities = new List<ImmunitySource>();
+    }
+
+    public void Heal(float amount)
+    {
+        float oldHp = currentHP;
+        currentHP = Mathf.Clamp(currentHP + amount, 0, maxHP);
+
+        if (OnHealed != null)
+        {
+            OnHealed(currentHP, oldHp);
+        }
     }
 
     public bool Hit(float damage, DamageSource source)

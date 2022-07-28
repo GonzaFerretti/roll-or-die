@@ -73,9 +73,9 @@ public class D8Controller : MonoBehaviour
             projectile.GetComponent<Rigidbody2D>().AddForce( playerDirection.normalized * 10, ForceMode2D.Impulse);
             Bullet createdBullet = projectile.GetComponent<Bullet>();
             createdBullet.source = DamageSource.enemy;
-            createdBullet.damage = 2;
+            createdBullet.bulletParams.damage = 2;
+            createdBullet.bulletParams.sqrRange = bulletRange * bulletRange;
             createdBullet.origin = firePoint.position;
-            createdBullet.rangeSqr = bulletRange*bulletRange;
         }
         
         attacking = false;

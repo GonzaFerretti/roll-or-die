@@ -15,6 +15,8 @@ public class WeaponDefinition : ScriptableObject
     [SerializeField] 
     public float spread = 0;
     [SerializeField] 
+    public float lifeSteal = -1;
+    [SerializeField] 
     public float burstRate = 0;
     [SerializeField] 
     public int burstAmount = -1;
