@@ -39,6 +39,10 @@ public class HealthContainer : MonoBehaviour
     
     public HealthChangeEvent OnDamaged;
     public HealthChangeEvent OnHealed;
+    
+    [SerializeField]
+    private float weaponDropChance = 0.5f;
+    private bool weaponDropped = false;
 
     public void AddImmunity(ImmunitySource source)
     {
@@ -106,36 +110,38 @@ public class HealthContainer : MonoBehaviour
         if (currentHP == 0)
         {
             if(gameObject != null)
-            {
-                int siEsCeroTeDoyUnArma = UnityEngine.Random.Range(0, 10);
-                
-                if (siEsCeroTeDoyUnArma < 5)
+            if(!weaponDropped)
                 {
-                    int arma = UnityEngine.Random.Range(0, 4);
-                    WeaponDefinition definition = arma1;
-                    switch (arma)
+                    weaponDropped = true;
+                    float dropRoll = UnityEngine.Random.value;
+                    
+                    if (dropRoll < weaponDropChance)
                     {
-                        case 0:
-                            definition = arma1;
-                            break;
-                        case 1:
-                            definition = arma2;
-                            break;
-                        case 2:
-                            definition = arma3;
-                            break;
-                        case 3:
-                            definition = arma4;
-                            break;
+                        int arma = UnityEngine.Random.Range(0, 4);
+                        WeaponDefinition definition = arma1;
+                        switch (arma)
+                        {
+                            case 0:
+                                definition = arma1;
+                                break;
+                            case 1:
+                                definition = arma2;
+                                break;
+                            case 2:
+                                definition = arma3;
+                                break;
+                            case 3:
+                                definition = arma4;
+                                break;
+                        }
+
+                        GameObject dropPickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+                        WeaponPickup newPickup = dropPickup.GetComponent<WeaponPickup>();
+                        newPickup.Initialize(definition);
+
+                        col.enabled = false;
                     }
-
-                    GameObject dropPickup = Instantiate(pickupPrefab, transform.position, Quaternion.identity);
-                    WeaponPickup newPickup = dropPickup.GetComponent<WeaponPickup>();
-                    newPickup.Initialize(definition);
-
-                    col.enabled = false;
                 }
-            }
 
             Destroy(gameObject);
         }
